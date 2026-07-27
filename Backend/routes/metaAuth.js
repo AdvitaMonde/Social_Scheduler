@@ -245,7 +245,11 @@ router.post('/select-page', requireAuth, asyncHandler(async (req, res) => {
     return res.status(400).json({ error: 'state and pageId are required.' });
   }
 
-  const pending = await PendingMetaConnection.findOne({ state, userId: req.user.id });
+  // const pending = await PendingMetaConnection.findOne({ state, userId: req.user.id });
+ 
+ const pending = await PendingMetaConnection.findOne({ state, userId: req.user.id }).select(
+     '+userAccessToken'
+   );
   if (!pending) {
     return res.status(404).json({ error: 'No pending connection found (it may have expired).' });
   }
