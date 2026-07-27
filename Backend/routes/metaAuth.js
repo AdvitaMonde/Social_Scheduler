@@ -50,7 +50,7 @@ res.cookie('meta_oauth_state', state, {
   secure: true,
   sameSite: 'none',
   maxAge: 10 * 60 * 1000,
-  domain: 'founder-spied-freestyle.ngrok-free.dev'
+  // domain: 'founder-spied-freestyle.ngrok-free.dev'
 });
 
 res.cookie('meta_oauth_state_user', String(req.user.id), {
@@ -58,7 +58,7 @@ res.cookie('meta_oauth_state_user', String(req.user.id), {
   secure: true,
   sameSite: 'none',
   maxAge: 10 * 60 * 1000,
-  domain: 'founder-spied-freestyle.ngrok-free.dev'
+  // domain: 'founder-spied-freestyle.ngrok-free.dev'
 });
 
 
