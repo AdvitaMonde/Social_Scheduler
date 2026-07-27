@@ -74,7 +74,8 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
     return res.status(400).json({ error: 'Select at least one account to post to.' });
   }
 
-  const scheduledFor = new Date(scheduledTime);
+  // const scheduledFor = new Date(scheduledTime);
+  const scheduledFor = new Date(`${scheduledTime}:00+05:30`);
   if (Number.isNaN(scheduledFor.getTime())) {
     return res.status(400).json({ error: 'Invalid scheduledTime.' });
   }
